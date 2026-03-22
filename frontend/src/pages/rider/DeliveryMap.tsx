@@ -15,7 +15,7 @@ export default function DeliveryMap() {
 
   useEffect(() => {
     orderService.getById(Number(orderId)).then(res => setOrder(res.data));
-    const socket = connectSocket('rider');
+    connectSocket('rider');
     return () => {
       disconnectSocket();
       if (watchIdRef.current) navigator.geolocation.clearWatch(watchIdRef.current);
