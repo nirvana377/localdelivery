@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bike, LogOut, MapPin, Package, Navigation, CheckCircle2 } from 'lucide-react';
 import { deliveryService } from '../../services/api';
@@ -12,7 +13,7 @@ const nextStatus: Record<string, string> = {
   on_the_way: 'delivered',
 };
 
-const nextLabel: Record<string, { label: string; icon: JSX.Element }> = {
+const nextLabel: Record<string, { label: string; icon: React.ReactNode }> = {
   ready:      { label: 'Recoger pedido',   icon: <Package size={15} /> },
   picked_up:  { label: 'Salir a entregar', icon: <Navigation size={15} /> },
   on_the_way: { label: 'Marcar entregado', icon: <CheckCircle2 size={15} /> },

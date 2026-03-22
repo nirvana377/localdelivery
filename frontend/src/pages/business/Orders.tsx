@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, ChefHat, Package, Bike, UserCheck } from 'lucide-react';
 import { orderService, deliveryService } from '../../services/api';
@@ -6,7 +7,7 @@ import { connectSocket, disconnectSocket } from '../../services/socket';
 import type { Order } from '../../types';
 
 const nextStatus: Record<string, string> = { pending: 'confirmed', confirmed: 'preparing', preparing: 'ready', ready: 'picked_up' };
-const nextLabel: Record<string, { label: string; icon: JSX.Element }> = {
+const nextLabel: Record<string, { label: string; icon: React.ReactNode }> = {
   pending:   { label: 'Confirmar',       icon: <CheckCircle size={15} /> },
   confirmed: { label: 'Preparar',        icon: <ChefHat size={15} /> },
   preparing: { label: 'Marcar listo',    icon: <Package size={15} /> },
