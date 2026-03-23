@@ -12,6 +12,7 @@ export default function DeliveryMap() {
   const [tracking, setTracking] = useState(false);
   const watchIdRef = useRef<number | null>(null);
   const navigate = useNavigate();
+  connectSocket('rider');
 
   useEffect(() => {
     orderService.getById(Number(orderId)).then(res => setOrder(res.data));
